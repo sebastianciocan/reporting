@@ -51,6 +51,9 @@ public class CommerceGuysLaptopBagPage extends AbstractPage {
     @FindBy(css = ".button.checkout a")
     private WebElement goToCheckoutButton;
 
+    @FindBy(css = ".continue")
+    private WebElement continueShoppingButton;
+
     public void makeAProductDetailsList(){
         List<ProductObjectList> productDetails = new ArrayList<ProductObjectList>();
         productDetails.add(new ProductObjectList(productCode, productPrice, popupProductQuantity));
@@ -107,5 +110,9 @@ public class CommerceGuysLaptopBagPage extends AbstractPage {
     public void clickGoToCheckoutButton(){
         element(goToCheckoutButton).waitUntilVisible();
         goToCheckoutButton.click();
+    }
+    public void clickContinueShoppingButton(){
+        element(continueShoppingButton).waitUntilVisible();
+        continueShoppingButton.click();
     }
 }

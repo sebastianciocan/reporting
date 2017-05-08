@@ -47,6 +47,7 @@ public class US002AddProductToCartTest extends BaseTest {
         String productSkuFromProductPage = commerceGuyLaptopBagSteps.getProductCode();
         String productPriceFromProductPage = commerceGuyLaptopBagSteps.getProductPrice().replaceAll("[^0-9\\.]","");
         double productDefaultPrice = Double.parseDouble(productPriceFromProductPage);
+        commerceGuyLaptopBagSteps.getProductDetails();
         commerceGuyLaptopBagSteps.clickReadMoreDescriptionButton();
         commerceGuyLaptopBagSteps.clickIncreaseProductQuantityBy1();
         commerceGuyLaptopBagSteps.clickAddToCartButton();

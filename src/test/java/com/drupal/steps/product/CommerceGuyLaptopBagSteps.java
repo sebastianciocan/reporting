@@ -3,6 +3,7 @@ package com.drupal.steps.product;
 import com.drupal.pages.product.CommerceGuysLaptopBagPage;
 import com.drupal.steps.AbstractSteps;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 
 /**
  * Created by sebastianciocan on 5/5/2017.
@@ -34,6 +35,13 @@ public class CommerceGuyLaptopBagSteps extends AbstractSteps {
     @Step
     public String getProductPrice(){
         return commerceGuyLaptopBagSteps.getProductPrice();
+    }
+    @StepGroup
+    public void getProductDetails(){
+        getProductName();
+        getProductBrand();
+        getProductCode();
+        getProductPrice();
     }
     @Step
     public void clickReadMoreDescriptionButton(){

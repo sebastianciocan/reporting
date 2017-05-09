@@ -23,8 +23,8 @@ public class MenuNavigationPage extends AbstractPage{
     WebElement toDrinkWithItem;
 
 
-    public void selectACategoryFromMainMenu(){
-        clickAMenuItemFromList(mainMenuItems,"All Products");
+    public void selectACategoryFromMainMenu(String menuItem){
+        clickAMenuItemFromList(mainMenuItems,menuItem);
     }
 
 }

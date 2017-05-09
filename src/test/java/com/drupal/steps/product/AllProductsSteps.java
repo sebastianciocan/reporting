@@ -2,6 +2,7 @@ package com.drupal.steps.product;
 
 import com.drupal.pages.product.AllProductsPage;
 import com.drupal.steps.AbstractSteps;
+
 import net.thucydides.core.annotations.Step;
 
 /**

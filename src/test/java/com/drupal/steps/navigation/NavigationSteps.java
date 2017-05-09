@@ -10,8 +10,8 @@ public class NavigationSteps extends AbstractSteps{
 	MenuNavigationPage menuNavigationPage;
 
 	@Step
-	public void selectProductCategoryFromMenuList(){
-		menuNavigationPage.selectACategoryFromMainMenu();
+	public void selectProductCategoryFromMenuList(String menuItem){
+		menuNavigationPage.selectACategoryFromMainMenu(menuItem);
 	}
 	
 }

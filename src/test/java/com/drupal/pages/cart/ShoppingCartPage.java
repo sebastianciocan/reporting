@@ -24,7 +24,7 @@ public class ShoppingCartPage extends AbstractPage {
 
 		List<WebElement> cartListElements = getDriver().findElements(By.cssSelector(".views-table.cols-5 tr"));
 		for (WebElement productRowNow : cartListElements) {
-			if (productRowNow.findElement(By.cssSelector("")).getText().toLowerCase()
+			if (productRowNow.findElement(By.cssSelector(".commerce-product-sku")).getText().toLowerCase()
 					.contentEquals(productCode.toLowerCase())) {
 				return productRowNow;
 			}
@@ -35,7 +35,7 @@ public class ShoppingCartPage extends AbstractPage {
 	public String getPropertyValue(String productCode, String propertyName) {
 		boolean isPropertyFound = false;
 		WebElement shoppingCartItem = getShoppingCartItem(productCode);
-		List<WebElement> propertiesList = shoppingCartItem.findElements(By.cssSelector(""));
+		List<WebElement> propertiesList = shoppingCartItem.findElements(By.cssSelector(".content div[class*='field-name']"));
 		for (WebElement propertyItem : propertiesList) {
 			propertyItem.getText().toLowerCase().contains(propertyName.toLowerCase() + ":");
 			String propertyParts[] = propertyItem.getText().split(": ");
@@ -43,6 +43,22 @@ public class ShoppingCartPage extends AbstractPage {
 		}
 		Assert.assertTrue("The property was not found!", isPropertyFound);
 		return null;
+	}
+	
+	public void checkPropertyValue(String productCode, String propertyName, String expectedPropertyValue){
+		Assert.assertTrue("The property value is incorrect!", getPropertyValue(productCode, propertyName).contentEquals(expectedPropertyValue));
+		
+	}
+	
+	public String getProductDetailValue(String productCode, String detailName) {
+		WebElement shoppingCartItem = getShoppingCartItem(productCode);
+		return shoppingCartItem.findElement(By.cssSelector("td[class*='"+detailName.toLowerCase()+"']")).getAttribute("value");
+
+	}	
+	
+	public void checkDetailValue(String productCode, String detailName, String expectedDetailValue){
+		Assert.assertTrue("The detail value is incorrect!", getProductDetailValue(productCode, detailName).contentEquals(expectedDetailValue));
+		
 	}
 
 }

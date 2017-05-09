@@ -46,9 +46,10 @@ public abstract class AbstractPage extends PageObject {
 	}
 
 	protected void waitForPageToLoad() {
-		new WebDriverWait(driver, 30)
+		new WebDriverWait(driver, 1)
 				.until(ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";"));
 	}
+
 
 }
 

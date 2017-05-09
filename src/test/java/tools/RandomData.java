@@ -33,7 +33,7 @@ public class RandomData {
 		return getUniqueString(1, 1).toUpperCase() + getUniqueString(5, 7) + "_" + getRandomNumberInRange(1, 99);
 	}
 	
-	public static String getUniqueGmailEmail(String email){
+	public static String getUniqueGmail(String email){
 		String base =email + "+";
 		String emailEnding = "gmail.com";
 		return base + getUniqueString(5,7) + "@" + emailEnding;
@@ -42,7 +42,7 @@ public class RandomData {
 	
 	public static void main(String [ ] args){
 		System.out.println(getUniqueString(5,8));
-		System.out.println(getUniqueGmailEmail("victortomaciprian"));
+		System.out.println(getUniqueGmail("victortomaciprian"));
 		System.out.println(getUniquePassword());
 	}
 	

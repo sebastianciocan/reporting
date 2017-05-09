@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class SearchByKeywordStory {
     public EndUserSteps anna;
 
     @Issue("#WIKI-1")
+    @Ignore
     @Test
     public void searching_by_keyword_apple_should_display_the_corresponding_article() {
         anna.is_the_home_page();
@@ -29,7 +31,7 @@ public class SearchByKeywordStory {
         anna.should_see_definition("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.");
 
     }
-
+    @Ignore
     @Test
     public void searching_by_keyword_banana_should_display_the_corresponding_article() {
         anna.is_the_home_page();

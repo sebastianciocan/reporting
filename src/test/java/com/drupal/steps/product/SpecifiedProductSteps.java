@@ -44,6 +44,10 @@ public class SpecifiedProductSteps extends AbstractSteps {
         commerceGuyLaptopBagSteps.clickIncreaseProductQuantityBy1();
     }
     @Step
+    public void enterAProductQuantity(String quantity){
+        commerceGuyLaptopBagSteps.enterASpecifiedQuantityInTheField(quantity);
+    }
+    @Step
     public void clickAddToCartButton(){
         commerceGuyLaptopBagSteps.clickAddToCartButton();
     }

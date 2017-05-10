@@ -19,12 +19,11 @@ import tools.Helpers;
 public class US003AddProductsToCartUsingCsvFile extends BaseTest {
 
     String productname;
-    public String productQuanity2;
+    String productquantity;
 
     @Before
     public void setup(){
         webdriver.manage().window().maximize();
-        productQuanity2 = "2";
 
     }
 
@@ -49,13 +48,15 @@ public class US003AddProductsToCartUsingCsvFile extends BaseTest {
         String productPriceFromProductPage2 = helpers.removeCharacters(specifiedProductSteps.getProductPrice());
         double productDefaultPrice2 = Double.parseDouble(productPriceFromProductPage2);
         specifiedProductSteps.clickReadMoreDescriptionButton();
-        specifiedProductSteps.clickIncreaseProductQuantityBy1();
+        specifiedProductSteps.enterAProductQuantity(productquantity);
         specifiedProductSteps.clickAddToCartButton();
         String popupProductSku2 = helpers.replaceNewLineFromStringWithSpace(specifiedProductSteps.getPopUpProductSku());
-        String popUpProductQuantity2 = specifiedProductSteps.getPopUpProductQuantity();
+        String popUpProductQuantity2 = helpers.removeCharacters(specifiedProductSteps.getPopUpProductQuantity());
         String popUpTotalPrice2 = helpers.removeCharacters(specifiedProductSteps.getPopUpTotalPrice());
         double totalProductPrice2 = Double.parseDouble(popUpTotalPrice2);
-        helpers.assertProductDetails(productSkuFromProductPage2,popupProductSku2,productQuanity2,popUpProductQuantity2,productDefaultPrice2,totalProductPrice2);
+        System.out.println(productquantity);
+        System.out.println(popUpProductQuantity2);
+        helpers.assertProductDetails(productSkuFromProductPage2,popupProductSku2,productquantity,popUpProductQuantity2,productDefaultPrice2,totalProductPrice2);
         specifiedProductSteps.createAProductDetailsList();
         specifiedProductSteps.clickGoToCheckoutButton();
     }

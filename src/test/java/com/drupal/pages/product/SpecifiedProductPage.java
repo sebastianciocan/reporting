@@ -1,6 +1,8 @@
 package com.drupal.pages.product;
 
 import com.drupal.pages.AbstractPage;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import tools.ProductObjectList;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import org.junit.Assert;
@@ -35,6 +37,9 @@ public class SpecifiedProductPage extends AbstractPage {
 
     @FindBy(css = ".ui-spinner-up.ui-spinner-button.ui-state-default.ui-corner-tr")
     private WebElement increaseProductQuantityBy1;
+
+    @FindBy(css = "#edit-quantity")
+    private WebElement productQuantityInput;
 
     @FindBy(css = "#edit-submit")
     private WebElement addToCartButton;
@@ -90,6 +95,12 @@ public class SpecifiedProductPage extends AbstractPage {
     public void clickIncreaseProductQuantityBy1(){
         element(increaseProductQuantityBy1).waitUntilVisible();
         increaseProductQuantityBy1.click();
+    }
+    public void enterASpecifiedQuantityInTheField(String quantity){
+        element(productQuantityInput).waitUntilVisible();
+        Actions selectInputValue = new Actions(getDriver());
+        selectInputValue.moveToElement(productQuantityInput).doubleClick().sendKeys(Keys.chord(Keys.CONTROL,"a"),quantity);
+        selectInputValue.perform();
     }
     public void clickAddToCartButton(){
         element(addToCartButton).waitUntilVisible();

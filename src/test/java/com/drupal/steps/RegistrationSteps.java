@@ -177,4 +177,14 @@ public class RegistrationSteps extends AbstractSteps {
 		typeConfirmPassword("victortomaciprian@gmail.com");
 		assertNotMatchingPasswords();
 	}
+	
+	@Step
+	public void clickOnPassworInput(){
+		registration.clickOnPasswordInput();
+	}
+	
+	@Step
+	public void checkThatSuggestionsAppear(boolean shouldAppear, String... suggestions) {
+		registration.checkThatSuggestionsAppear(shouldAppear, suggestions);
+	}
 }

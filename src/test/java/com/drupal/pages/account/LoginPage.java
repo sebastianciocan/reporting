@@ -9,14 +9,17 @@ import com.drupal.pages.AbstractPage;
 public class LoginPage extends AbstractPage {
 
 	@FindBy(id = "edit-name")
-	private WebElement emailInput;
+	private WebElement usernameInput;
 
 	@FindBy(id = "edit-pass")
 	WebElement passwordInput;
-
-	public void typeEmail(String email) {
-		emailInput.clear();
-		emailInput.sendKeys(email);
+	
+	@FindBy(id = "edit-submit")
+	WebElement logInButton;
+	
+	public void typeUsername(String username) {
+		usernameInput.clear();
+		usernameInput.sendKeys(username);
 
 	}
 
@@ -24,10 +27,8 @@ public class LoginPage extends AbstractPage {
 		passwordInput.clear();
 		passwordInput.sendKeys(password);
 	}
+	
 
-	public void login(String email, String password) {
-		typeEmail(email);
-		typePassword(password);
-		getDriver().findElement(By.id("edit-submit")).click();
-	}
+
+	
 }

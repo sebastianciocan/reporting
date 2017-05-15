@@ -22,6 +22,10 @@ import net.thucydides.core.annotations.Steps;
 @RunWith(SerenityRunner.class)
 public class US002AddTwoProductsToCartTest extends BaseTest {
     public String productName1,productName2,productQuanity1,productQuanity2;
+    public String productSkuFromProductPage1,productPriceFromProductPage1,popupProductSku1,popUpProductQuantity1,popUpTotalPrice1;
+    public double productDefaultPrice1,totalProductPrice1;
+    public String productSkuFromProductPage2,productPriceFromProductPage2,popupProductSku2,popUpProductQuantity2,popUpTotalPrice2;
+    public double productDefaultPrice2,totalProductPrice2;
 
 
 
@@ -53,33 +57,33 @@ public class US002AddTwoProductsToCartTest extends BaseTest {
         navigationSteps.selectProductCategoryFromMenuList(Constants.ALLPRODUCTSMENUITEM);
         allProductsSteps.selectSpecifiedProduct(productName1);
         specifiedProductSteps.checkIfThePathToTheProductIsCorrect(productName1);
-        String productSkuFromProductPage1 = specifiedProductSteps.getProductCode();
-        String productPriceFromProductPage1 = helpers.removeCharacters(specifiedProductSteps.getProductPrice());
-        double productDefaultPrice1 = Double.parseDouble(productPriceFromProductPage1);
+        productSkuFromProductPage1 = specifiedProductSteps.getProductCode();
+        productPriceFromProductPage1 = helpers.removeCharacters(specifiedProductSteps.getProductPrice());
+        productDefaultPrice1 = Double.parseDouble(productPriceFromProductPage1);
         specifiedProductSteps.clickReadMoreDescriptionButton();
         specifiedProductSteps.clickIncreaseProductQuantityBy1();
         specifiedProductSteps.clickIncreaseProductQuantityBy1();
         specifiedProductSteps.clickAddToCartButton();
-        String popupProductSku1 = helpers.replaceNewLineFromStringWithSpace(specifiedProductSteps.getPopUpProductSku());
-        String popUpProductQuantity1 = specifiedProductSteps.getPopUpProductQuantity();
-        String popUpTotalPrice1 = helpers.removeCharacters(specifiedProductSteps.getPopUpTotalPrice());
-        double totalProductPrice1 = Double.parseDouble(popUpTotalPrice1);
+        popupProductSku1 = helpers.replaceNewLineFromStringWithSpace(specifiedProductSteps.getPopUpProductSku());
+        popUpProductQuantity1 = specifiedProductSteps.getPopUpProductQuantity();
+        popUpTotalPrice1 = helpers.removeCharacters(specifiedProductSteps.getPopUpTotalPrice());
+        totalProductPrice1 = Double.parseDouble(popUpTotalPrice1);
         helpers.assertProductDetails(productSkuFromProductPage1,popupProductSku1,productQuanity1,popUpProductQuantity1,productDefaultPrice1,totalProductPrice1);
         specifiedProductSteps.createAProductDetailsList();
         specifiedProductSteps.clickContinueShoppingButton();
         navigationSteps.selectProductCategoryFromMenuList(Constants.ALLPRODUCTSMENUITEM);
         allProductsSteps.selectSpecifiedProduct(productName2);
         specifiedProductSteps.checkIfThePathToTheProductIsCorrect(productName2);
-        String productSkuFromProductPage2 = specifiedProductSteps.getProductCode();
-        String productPriceFromProductPage2 = helpers.removeCharacters(specifiedProductSteps.getProductPrice());
-        double productDefaultPrice2 = Double.parseDouble(productPriceFromProductPage2);
+        productSkuFromProductPage2 = specifiedProductSteps.getProductCode();
+        productPriceFromProductPage2 = helpers.removeCharacters(specifiedProductSteps.getProductPrice());
+        productDefaultPrice2 = Double.parseDouble(productPriceFromProductPage2);
         specifiedProductSteps.clickReadMoreDescriptionButton();
         specifiedProductSteps.clickIncreaseProductQuantityBy1();
         specifiedProductSteps.clickAddToCartButton();
-        String popupProductSku2 = helpers.replaceNewLineFromStringWithSpace(specifiedProductSteps.getPopUpProductSku());
-        String popUpProductQuantity2 = specifiedProductSteps.getPopUpProductQuantity();
-        String popUpTotalPrice2 = helpers.removeCharacters(specifiedProductSteps.getPopUpTotalPrice());
-        double totalProductPrice2 = Double.parseDouble(popUpTotalPrice2);
+        popupProductSku2 = helpers.replaceNewLineFromStringWithSpace(specifiedProductSteps.getPopUpProductSku());
+        popUpProductQuantity2 = specifiedProductSteps.getPopUpProductQuantity();
+        popUpTotalPrice2 = helpers.removeCharacters(specifiedProductSteps.getPopUpTotalPrice());
+        totalProductPrice2 = Double.parseDouble(popUpTotalPrice2);
         helpers.assertProductDetails(productSkuFromProductPage2,popupProductSku2,productQuanity2,popUpProductQuantity2,productDefaultPrice2,totalProductPrice2);
         specifiedProductSteps.createAProductDetailsList();
         specifiedProductSteps.clickGoToCheckoutButton();

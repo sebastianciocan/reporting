@@ -16,10 +16,29 @@ public class ShoppingCartListSteps extends AbstractSteps {
 		shoppingCartPage.checkPropertyValue(productCode, propertyName, expectedPropertyValue);
 	}
 	
+//	@Step
+//	 public void checkDetailValue(String productCode, String detailName, String expectedDetailValue){
+//		shoppingCartPage.checkDetailValue( productCode,  detailName,  expectedDetailValue);
+//	}
+	
 	@Step
-	 public void checkDetailValue(String productCode, String detailName, String expectedDetailValue){
-		shoppingCartPage.checkDetailValue( productCode,  detailName,  expectedDetailValue);
+	public void checkQuantityValue(String productCode, Float expectedDetailValue) {
+		shoppingCartPage.checkQuantityValue( productCode,  expectedDetailValue);
+	}	
+	
+	@Step
+	public void checkPriceValue(String productCode, Float expectedDetailValue) {
+		shoppingCartPage.checkPriceValue( productCode,  expectedDetailValue);
+			
 	}
 	
+	@Step	
+	public void checkTotalPriceValue(String productCode){
+		shoppingCartPage.checkTotalPriceValue( productCode);
+	}
+	 @Step
+	public void checkOrderTotalPrice(){
+		 shoppingCartPage.checkOrderTotalPrice();
+	 }
 	
 }

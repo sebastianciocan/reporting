@@ -1,7 +1,8 @@
 package com.drupal.tests.shopping.cart;
 
-import com.drupal.steps.shopping.cart.ShoppingCartListSteps;
+
 import tools.Constants;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import com.drupal.pages.cart.ShoppingCartPage;
 import com.drupal.steps.navigation.NavigationSteps;
 import com.drupal.steps.product.AllProductsSteps;
 import com.drupal.steps.product.SpecifiedProductSteps;
+import com.drupal.steps.shopping.cart.ShoppingCartListSteps;
 import com.drupal.tests.BaseTest;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -28,7 +30,6 @@ public class US010ShoppingCartListTest extends BaseTest {
 	@Before
 	public void setup() {
 
-		
 		productName1 = "Drupal Commerce Ready for the Court";
 		productName2 = "\"The Guy\" Mug";
 		webdriver.manage().window().maximize();
@@ -89,9 +90,13 @@ public class US010ShoppingCartListTest extends BaseTest {
 	public void testName() {
 
 		shoppingCartListSteps.checkPropertyValue("SHO2-PRL-04", "Color", "Purple");
-		shoppingCartListSteps.checkDetailValue("SHO2-PRL-04", "QUANTITY", "3");
 		shoppingCartListSteps.checkPropertyValue("MG2-YLW-OS", "Color", "Yellow");
-		shoppingCartListSteps.checkDetailValue("MG2-YLW-OS", "QUANTITY", "2");
+		
+		shoppingCartListSteps.checkPriceValue("SHO2-PRL-04", (float) 40.00);
+		shoppingCartListSteps.checkQuantityValue("MG2-YLW-OS", (float) 2);
+		shoppingCartListSteps.checkTotalPriceValue("SHO2-PRL-04");
+		
+		shoppingCartListSteps.checkOrderTotalPrice();
 	}
 
 }

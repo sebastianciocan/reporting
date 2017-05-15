@@ -9,4 +9,8 @@ public class UserZoneSteps {
 	public void goToRegistrationPage(){
 		userZone.goToRegistrationPage();
 	}
+	
+	public void goToLoginPage(){
+		userZone.goToLoginPage();
+	}
 }

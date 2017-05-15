@@ -16,7 +16,7 @@ import tools.Helpers;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom( value = Constants.CSV_FILES_PATH + "ProductNames.csv")
-public class US003AddProductsToCartUsingCsvFile extends BaseTest {
+public class US003AddProductsToCartUsingCsvFileTest extends BaseTest {
 
     String productname;
     String productquantity;
@@ -37,7 +37,7 @@ public class US003AddProductsToCartUsingCsvFile extends BaseTest {
     public ShoppingCartPage shoppingCartPage;
 
     @Test
-    public void addOneProductToCartUsingCsvFile(){
+    public void testAddOneProductToCartUsingCsvFile(){
 
         Helpers helpers = new Helpers();
         navigationSteps.navigateTo(Constants.HOST);

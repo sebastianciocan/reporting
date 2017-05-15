@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         US002AddTwoProductsToCartTest.class,
-        US003AddProductsToCartUsingCsvFile.class
+        US003AddProductsToCartUsingCsvFileTest.class
 })
 public class ProductTestSuites {
 }
